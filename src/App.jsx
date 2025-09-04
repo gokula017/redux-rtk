@@ -9,7 +9,7 @@ import CartList from './components/CartList'
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/redux-rtk">
         <Header />
 
         <Routes>
