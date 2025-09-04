@@ -1,0 +1,358 @@
+:root {
+    /* Customize these to change theme quickly */
+    --accent: #6c5ce7;
+    --red: #dd1315;
+    --green: #007600;
+    --gray: #dddddd;
+    /* Button & highlights */
+    --accent-foreground: #fff;
+    /* Button text */
+    --title-color: #111827;
+    /* Product title color */
+    --bg: #f6f7fb;
+    /* Page background */
+    --card-bg: #ffffff;
+    /* Card background (white) */
+    --text: #374151;
+    /* Body text */
+    --price: #111827;
+    /* Price color */
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --radius: 18px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Navbar */
+.navbar {
+    background: #fff;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    color: var(--title-color);
+    gap: 8px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 22px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+/* @media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        box-shadow: var(--shadow);
+        padding: 15px 0;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+} */
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+.justify-between{
+    justify-content: space-between;
+}
+
+.text-green {
+    color: var(--green) !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Header */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: saturate(1.2) blur(6px);
+    background: rgba(255, 255, 255, 0.7);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: #111827;
+}
+
+.brand .logo {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, var(--accent), #8e79ff);
+    display: grid;
+    place-items: center;
+    color: var(--accent-foreground);
+    box-shadow: var(--shadow);
+    font-size: 18px;
+}
+
+
+.cart {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.cart-btn {
+    appearance: none;
+    border: none;
+    background: var(--accent);
+    color: var(--accent-foreground);
+    border-radius: 999px;
+    padding: 10px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: transform .12s ease, box-shadow .12s ease, opacity .15s ease;
+}
+
+.cart-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px #6c5ce755;
+}
+
+.cart-btn:active {
+    transform: translateY(0);
+}
+
+.cart-count {
+    min-width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #111827;
+    color: #fff;
+    display: inline-grid;
+    place-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0 6px;
+}
+
+/* Page container */
+.container {
+    max-width: 1100px;
+    margin: 28px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 30%));
+    gap: 22px;
+    justify-content: center;
+
+    &.list {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Product Card */
+.card {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    background: white;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    border: 1px solid var(--accent);
+
+    &.list {
+        display: flex;
+        align-items: center;
+        margin: 10px auto;
+        width: max(500px, 80%);
+        justify-content: space-between;
+    }
+}
+
+.media {
+    /* aspect-ratio: 16/10; */
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.media img {
+    width: 225px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+
+    &.list {
+        width: 100px;
+    }
+}
+
+
+.content {
+    padding: 16px;
+}
+
+.title {
+    margin: 0 0 6px;
+    font-size: 1.05rem;
+    line-height: 1.35;
+    color: var(--title-color);
+    /* Title color set here */
+    font-weight: 700;
+}
+
+.price {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--price);
+}
+
+.muted {
+    color: #6b7280;
+    font-size: .9rem;
+}
+
+
+.actions {
+    padding: 16px;
+    padding-top: 0;
+
+    &.list {
+        padding: 0 20px;
+    }
+}
+
+.btn {
+    width: 100%;
+    appearance: none;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 14px;
+    background: var(--accent);
+    color: var(--accent-foreground);
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: transform .12s ease, box-shadow .12s ease, opacity .15s ease;
+
+    &.btn-clear-cart,
+    &.btn-small {
+        width: 100px;
+        margin: 20px 20px 0;
+    }
+}
+
+
+.btn:not(.btn-disabled):hover {
+    transform: translateY(-1px);
+    box-shadow: 0 7px 15px #00000065
+}
+
+.btn:not(.btn-disabled):active {
+    transform: translateY(0);
+}
+
+.btn-disabled {
+    background: var(--gray);
+    cursor: not-allowed
+}
+
+.btn-remove {
+    background: var(--red);
+}
+
+/* Utility: visually hidden for icons */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
